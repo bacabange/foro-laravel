@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,9 @@ return [
          * Package Service Providers...
          */
 
+        Styde\Html\HtmlServiceProvider::class,
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+
         //
 
         /*
@@ -225,6 +228,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Access' => Styde\Html\Facades\Access::class,
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class
+
 
     ],
 
