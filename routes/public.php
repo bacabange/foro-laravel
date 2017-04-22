@@ -18,14 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-// Posts
-Route::get('posts/create', [
-	'uses' => 'CreatePostsController@create',
-	'as' => 'posts.create'
-]);
-
-Route::post('posts/create', [
-	'uses' => 'CreatePostsController@store',
-	'as' => 'posts.store'
-]);
