@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
-class CreatePostController extends Controller
+class CreatePostsController extends Controller
 {
     public function create()
     {

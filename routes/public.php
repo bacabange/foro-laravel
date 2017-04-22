@@ -21,11 +21,11 @@ Route::get('/home', 'HomeController@index');
 
 // Posts
 Route::get('posts/create', [
-	'uses' => 'CreatePostController@create',
+	'uses' => 'CreatePostsController@create',
 	'as' => 'posts.create'
 ]);
 
 Route::post('posts/create', [
-	'uses' => 'CreatePostController@store',
+	'uses' => 'CreatePostsController@store',
 	'as' => 'posts.store'
 ]);
