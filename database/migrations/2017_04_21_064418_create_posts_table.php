@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->string('title');
+            $table->string('slug');
             $table->text('content');
             $table->boolean('prending')->default(true);
 
