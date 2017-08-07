@@ -19,7 +19,7 @@ class ShowPostTest extends FeatureTestCase
     	$user->posts()->save($post);
 
     	// When
-    	$this->visit(route('posts.show', $post))
+    	$this->visit($post->url)
     		->seeInElement('h1', $post->title)
     		->see($post->content)
     		->see($user->name);
