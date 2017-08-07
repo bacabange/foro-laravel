@@ -31,11 +31,22 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @return \App\User
      */
-    public function defaultUser()
+    public function defaultUser(array $attributes = [])
     {
         if ($this->defaultUser) {
             return $this->defaultUser;
         }
-        return $this->defaultUser = factory(App\User::class)->create();
+        return $this->defaultUser = factory(App\User::class)->create($attributes);
+    }
+
+
+    /**
+     * Create post
+     *
+     * @return \App\Post
+     */
+    public function createPost(array $attributes = [])
+    {
+        return factory(App\Post::class)->create($attributes);
     }
 }

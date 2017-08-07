@@ -25,15 +25,9 @@ class PostModelTest extends TestCase
 
     function test_responsing_the_url_post()
     {
-        $user = $this->defaultUser([
-            'name' => 'Stiven Castillo'
-        ]);
-
-        $post = factory(\App\Post::class)->make([
+        $post = $this->createPost([
             'title' => 'Instalar Laravel'
         ]);
-
-        $user->posts()->save($post);
 
         $this->assertSame(url('posts/' . $post->id . '-instalar-laravel'), $post->url);
 

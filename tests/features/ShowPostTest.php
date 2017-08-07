@@ -11,17 +11,34 @@ class ShowPostTest extends FeatureTestCase
     		'name' => 'Stiven Castillo'
     	]);
 
-    	$post = factory(\App\Post::class)->make([
+    	$post = $this->createPost([
     		'title' => 'Titulo del post',
-    		'content' => 'Descripcion del post'
+    		'content' => 'Descripcion del post',
+            'user_id' => $user->id
     	]);
-
-    	$user->posts()->save($post);
 
     	// When
     	$this->visit($post->url)
     		->seeInElement('h1', $post->title)
     		->see($post->content)
     		->see($user->name);
+    }
+
+
+    function test_old_urls_are_redirected()
+    {
+        $post = $this->createPost([
+            'title' => 'Old Title'
+        ]);
+
+        $url = $post->url;
+
+        $post->update([
+            'title' => 'New Title'
+        ]);
+
+        $this->visit($url)
+            ->seePageIs($post->url)
+            ->see('New Title');
     }
 }
